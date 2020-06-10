@@ -8,12 +8,16 @@ import { AuthorService } from 'src/app/Services/author.service';
   styleUrls: ['./author-list.component.css']
 })
 export class AuthorListComponent implements OnInit {
-  authors: Author[] = [];
+  authors: Author[];
 
   constructor(private authorService:AuthorService) { }
 
   ngOnInit(): void {
-    
+    this.authorService.getAuthors().subscribe(data => {
+      console.log("first" + this.authors)
+      this.authors = data;
+      console.log(this.authors)
+    });
   }
 
 }
