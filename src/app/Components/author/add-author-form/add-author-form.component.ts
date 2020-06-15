@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Output } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { AuthorService } from 'src/app/Services/author.service';
 
 @Component({
   selector: 'app-add-author-form',
@@ -8,7 +9,7 @@ import { FormBuilder } from '@angular/forms';
 })
 export class AddAuthorFormComponent  {
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private authorService: AuthorService) { }
 
   authorForm = this.fb.group({
     firstName: [''],
@@ -16,7 +17,9 @@ export class AddAuthorFormComponent  {
   })
 
   onSubmit() {
-    console.log("submit");
+    let formObj = this.authorForm.getRawValue();
+    let jsonAuthor = JSON.stringify(formObj);
+    this.authorService.saveAuthor(jsonAuthor);
   }
 
 }
