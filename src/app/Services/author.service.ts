@@ -26,12 +26,8 @@ export class AuthorService {
   }
 
   public saveAuthor(author: String) {
-    let jsonAuthor = JSON.parse(JSON.stringify(author));
-    console.log("Service end" + jsonAuthor);
-    return this.http.post<Author>(this.url, author, httpOptions).subscribe(
-      res => console.log('HTTP response', res),
-        err => console.log('HTTP Error', err),
-        () => console.log('HTTP request completed.'),
-    );
+    //let jsonAuthor = JSON.parse(JSON.stringify(author));
+    //console.log(jsonAuthor);
+    return this.http.post<Author>(this.url, author, httpOptions).subscribe();
   }
 }

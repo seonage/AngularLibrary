@@ -19,6 +19,7 @@ export class AddAuthorFormComponent  {
   onSubmit() {
     let formObj = this.authorForm.getRawValue();
     let jsonAuthor = JSON.stringify(formObj);
+    console.log(jsonAuthor);
     this.authorService.saveAuthor(jsonAuthor);
   }
 
