@@ -21,6 +21,7 @@ export class AddAuthorFormComponent  {
     let jsonAuthor = JSON.stringify(formObj);
     console.log(jsonAuthor);
     this.authorService.saveAuthor(jsonAuthor);
+    location.reload();
   }
 
 }
