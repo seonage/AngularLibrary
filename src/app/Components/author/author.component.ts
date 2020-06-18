@@ -11,8 +11,6 @@ export class AuthorComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-    //console.log(this.author._id.toString);
-  }
+  ngOnInit(): void {}
 
 }
