@@ -19,15 +19,14 @@ export class AuthorService {
   constructor(private http:HttpClient) { 
     
   }
-
-
+  
   public getAuthors(): Observable<Author[]> {
     return this.http.get<Author[]>(this.url);
   }
 
   public saveAuthor(author: String) {
-    //let jsonAuthor = JSON.parse(JSON.stringify(author));
-    //console.log(jsonAuthor);
     return this.http.post<Author>(this.url, author, httpOptions).subscribe();
   }
+
+  
 }
