@@ -18,4 +18,9 @@ export class AuthorListComponent implements OnInit {
     });
   }
 
+  deleteAuthor(author:Author) {
+    this.authors = this.authors.filter(a => a.id !==author.id)
+    this.authorService.deleteAuthor(author).subscribe();
+  }
+
 }

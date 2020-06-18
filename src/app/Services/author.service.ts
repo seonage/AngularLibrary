@@ -28,5 +28,9 @@ export class AuthorService {
     return this.http.post<Author>(this.url, author, httpOptions).subscribe();
   }
 
-  
+  public deleteAuthor(author:Author):Observable<Author> {
+    const authorUrl = `${this.url}/${author.id}`
+    console.log(authorUrl);
+    return this.http.delete<Author>(authorUrl, httpOptions);
+  }
 }
